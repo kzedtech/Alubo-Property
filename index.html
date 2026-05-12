@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
+  <title>Alunbo Property | Premium Real Estate in Lekki, Lagos</title>
+  <!-- Font Awesome 6 for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+    body {
+      background: #f9fafb;
+      color: #1e293b;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* header & navigation */
+    header {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 15px 20px;
+    }
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #0f3b3b;
+      letter-spacing: -0.5px;
+    }
+    .logo i {
+      color: #c48b3c;
+      margin-right: 6px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #c48b3c;
+      border-bottom: 2px solid #c48b3c;
+      padding-bottom: 4px;
+    }
+    .btn-primary {
+      background: #c48b3c;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+    .btn-primary:hover {
+      background: #a56e2c;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #0f3b3b;
+      color: #0f3b3b;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+    .btn-outline:hover {
+      background: #0f3b3b;
+      color: white;
+    }
+    .mobile-menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: #0f3b3b;
+      cursor: pointer;
+    }
+    /* hero / search section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.55)), url('https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    .search-box {
+      background: white;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 6px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    .search-box input, .search-box select {
+      flex: 1 1 180px;
+      border: none;
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      outline: none;
+      background: transparent;
+    }
+    .search-box button {
+      background: #c48b3c;
+      border: none;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .search-box button:hover {
+      background: #0f3b3b;
+    }
+    /* categories */
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 40px 0 20px;
+    }
+    .category-item {
+      background: white;
+      padding: 20px 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+      text-align: center;
+      font-weight: 600;
+      color: #0f3b3b;
+      transition: transform 0.2s;
+      cursor: pointer;
+      border: 1px solid #e9eef2;
+    }
+    .category-item i {
+      font-size: 2rem;
+      color: #c48b3c;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .category-item:hover {
+      transform: translateY(-5px);
+      border-color: #c48b3c;
+    }
+    /* featured listings grid */
+    .section-title {
+      font-size: 2rem;
+      margin: 50px 0 25px;
+      color: #0f3b3b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    .property-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .property-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+    }
+    .property-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #c48b3c;
+      color: white;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .property-details {
+      padding: 20px;
+      flex: 1;
+    }
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f3b3b;
+    }
+    .location {
+      color: #5f6c7a;
+      margin: 5px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .features {
+      display: flex;
+      gap: 15px;
+      margin: 12px 0;
+      font-size: 0.9rem;
+    }
+    /* pages common */
+    .page-content {
+      padding: 50px 0;
+    }
+    .about-flex, .services-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .service-card {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #c48b3c;
+      margin-bottom: 15px;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 35px;
+    }
+    .contact-form {
+      flex: 2;
+      min-width: 300px;
+    }
+    .contact-info {
+      flex: 1;
+      background: #0f3b3b;
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: #0f2b2b;
+      color: #ddd;
+      padding: 40px 20px 20px;
+      margin-top: 60px;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .social-links a {
+      color: white;
+      margin-right: 18px;
+      font-size: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 15px;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .mobile-menu-toggle {
+        display: block;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-bar container">
+      <div class="logo">
+        <i class="fas fa-building"></i> Alunbo<span style="color:#c48b3c;">Property</span>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#" class="active" data-page="home">Home</a>
+        <a href="#" data-page="listings">Listings</a>
+        <a href="#" data-page="about">About Us</a>
+        <a href="#" data-page="services">Services</a>
+        <a href="#" data-page="contact">Contact</a>
+        <a href="#" class="btn-primary" data-page="contact" style="padding:8px 18px;">Get in Touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- dynamic content injected via JS -->
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <h3 style="color:white; margin-bottom:10px;"><i class="fas fa-map-marker-alt"></i> Alunbo Property</h3>
+        <p>Your trusted partner in Lekki real estate.<br>Office: Lekki Phase 1, Lagos, Nigeria.</p>
+        <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+      </div>
+      <div>
+        <h4 style="color:white;">Quick Links</h4>
+        <p><a href="#" style="color:#ccc; text-decoration:none;" data-page="listings">Residential</a></p>
+        <p><a href="#" style="color:#ccc; text-decoration:none;" data-page="listings">Commercial</a></p>
+        <p><a href="#" style="color:#ccc; text-decoration:none;" data-page="about">About Lekki</a></p>
+      </div>
+      <div>
+        <h4 style="color:white;">Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:25px; color:#aaa; font-size:0.9rem;">
+      © 2025 Alunbo Property. Designed for Lekki, Lagos. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // Sample property data (Lekki focused)
+      const properties = [
+        { id:1, title:"Luxury 4-Bedroom Duplex", category:"Residential", price:"₦85,000,000", location:"Lekki Phase 1, Lagos", beds:4, baths:3, img:"https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600", desc:"Modern duplex with pool and garden." },
+        { id:2, title:"Elegant 3-Bedroom Apartment", category:"Residential", price:"₦45,000,000", location:"Ikate, Lekki", beds:3, baths:2, img:"https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600", desc:"Serene estate with 24/7 security." },
+        { id:3, title:"Commercial Shop Space", category:"Commercial", price:"₦25,000,000", location:"Lekki Phase 2", beds:"—", baths:"—", img:"https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=600", desc:"High foot traffic, suitable for retail." },
+        { id:4, title:"Short-let Studio Apartment", category:"Rental", price:"₦1,200,000/year", location:"Chevy View, Lekki", beds:1, baths:1, img:"https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600", desc:"Fully furnished with modern amenities." },
+        { id:5, title:"5-Bedroom Mansion", category:"Residential", price:"₦150,000,000", location:"Lekki Phase 1", beds:5, baths:4, img:"https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600", desc:"Waterfront luxury living." },
+        { id:6, title:"Office Complex", category:"Commercial", price:"₦60,000,000", location:"Admiralty Way, Lekki", beds:"—", baths:"—", img:"https://images.pexels.com/photos/288477/pexels-photo-288477.jpeg?auto=compress&cs=tinysrgb&w=600", desc:"Grade A office spaces." }
+      ];
+
+      const mainContent = document.getElementById('mainContent');
+      const navLinks = document.querySelectorAll('.nav-links a[data-page]');
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navLinksContainer = document.getElementById('navLinks');
+
+      // mobile menu toggle
+      mobileToggle.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('show');
+      });
+
+      // close mobile menu when link clicked
+      navLinksContainer.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          navLinksContainer.classList.remove('show');
+        }
+      });
+
+      function setActiveNav(page) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.dataset.page === page) link.classList.add('active');
+        });
+      }
+
+      // Render functions
+      function renderHome() {
+        const featured = properties.slice(0,4);
+        let cardsHtml = featured.map(p => `
+          <div class="property-card">
+            <div class="property-img" style="background-image: url('${p.img}');">
+              <span class="badge">${p.category}</span>
+            </div>
+            <div class="property-details">
+              <div class="price">${p.price}</div>
+              <div class="location"><i class="fas fa-map-marker-alt"></i> ${p.location}</div>
+              <div class="features">
+                ${p.beds !== '—' ? `<span><i class="fas fa-bed"></i> ${p.beds} Beds</span>` : ''}
+                ${p.baths !== '—' ? `<span><i class="fas fa-bath"></i> ${p.baths} Baths</span>` : ''}
+              </div>
+              <p style="color:#475569;">${p.desc}</p>
+            </div>
+          </div>
+        `).join('');
+
+        return `
+          <section class="hero">
+            <h1>Find Your Dream Property in Lekki, Lagos</h1>
+            <p>Alunbo Property – premium residential & commercial real estate.</p>
+            <div class="search-box">
+              <input type="text" placeholder="Search by location (e.g., Lekki Phase 1)" id="searchInput">
+              <select id="categorySelect">
+                <option value="">All Categories</option>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Rental">Rental</option>
+              </select>
+              <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+          </section>
+          <div class="container">
+            <div class="categories">
+              <div class="category-item" data-filter="Residential"><i class="fas fa-home"></i> Residential</div>
+              <div class="category-item" data-filter="Commercial"><i class="fas fa-store"></i> Commercial</div>
+              <div class="category-item" data-filter="Rental"><i class="fas fa-key"></i> Rentals</div>
+            </div>
+            <h2 class="section-title"><i class="fas fa-star" style="color:#c48b3c;"></i> Featured Properties</h2>
+            <div class="property-grid" id="featuredGrid">${cardsHtml}</div>
+          </div>
+        `;
+      }
+
+      function renderListings(filterCategory = null) {
+        let filtered = filterCategory ? properties.filter(p => p.category === filterCategory) : properties;
+        let gridHtml = filtered.map(p => `
+          <div class="property-card">
+            <div class="property-img" style="background-image: url('${p.img}');"><span class="badge">${p.category}</span></div>
+            <div class="property-details">
+              <div class="price">${p.price}</div>
+              <div class="location"><i class="fas fa-map-marker-alt"></i> ${p.location}</div>
+              <p>${p.desc}</p>
+            </div>
+          </div>
+        `).join('');
+        return `
+          <div class="container page-content">
+            <h2 style="color:#0f3b3b;">Property Listings in Lekki</h2>
+            <div class="property-grid">${gridHtml || '<p>No properties found.</p>'}</div>
+          </div>
+        `;
+      }
+
+      function renderAbout() {
+        return `
+          <div class="container page-content">
+            <h2 style="color:#0f3b3b;">About Alunbo Property</h2>
+            <div class="about-flex">
+              <div style="flex:1;">
+                <p>Alunbo Property is a premier real estate firm based in <strong>Lekki Phase 1, Lagos</strong>. We specialize in connecting buyers, sellers, and renters with exceptional properties across Lekki and its environs.</p>
+                <p>With deep local knowledge and a commitment to integrity, we offer tailored solutions for residential homes, commercial spaces, and short-let rentals.</p>
+                <p><i class="fas fa-map-pin"></i> Office: 12B Admiralty Way, Lekki Phase 1, Lagos.</p>
+              </div>
+              <div style="flex:1; background:#eef2f5; border-radius:20px; padding:25px;">
+                <h4>Why Lekki?</h4>
+                <p>Lekki is Lagos' fastest-growing real estate hub, offering luxury estates, beachfront living, and thriving commercial districts.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderServices() {
+        return `
+          <div class="container page-content">
+            <h2 style="color:#0f3b3b;">Our Services</h2>
+            <div class="services-grid">
+              <div class="service-card"><i class="fas fa-home"></i><h4>Property Sales</h4><p>Buy & sell residential and commercial properties in Lekki.</p></div>
+              <div class="service-card"><i class="fas fa-hand-holding-usd"></i><h4>Rentals & Leasing</h4><p>Short-let and long-term rentals.</p></div>
+              <div class="service-card"><i class="fas fa-building"></i><h4>Commercial Real Estate</h4><p>Office spaces, shops, and land.</p></div>
+              <div class="service-card"><i class="fas fa-search-dollar"></i><h4>Property Valuation</h4><p>Expert valuation services.</p></div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderContact() {
+        return `
+          <div class="container page-content">
+            <h2 style="color:#0f3b3b;">Get in Touch</h2>
+            <div class="contact-row">
+              <div class="contact-form">
+                <form id="inquiryForm">
+                  <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                  <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                  <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
+                  <div class="form-group"><select><option>I'm interested in...</option><option>Buying</option><option>Selling</option><option>Renting</option></select></div>
+                  <div class="form-group"><textarea rows="4" placeholder="Your message..."></textarea></div>
+                  <button type="submit" class="btn-primary" style="width:100%;">Send Inquiry</button>
+                </form>
+              </div>
+              <div class="contact-info">
+                <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+                <p>Lekki Phase 1, Lagos<br>Nigeria</p>
+                <p><i class="fas fa-envelope"></i> info@alunboproperty.com</p>
+                <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                <div style="margin-top:20px;">
+                  <strong>Local SEO:</strong> #1 real estate agent in Lekki, Lagos.
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function navigateTo(page, filterCat = null) {
+        setActiveNav(page);
+        if (page === 'home') mainContent.innerHTML = renderHome();
+        else if (page === 'listings') mainContent.innerHTML = renderListings(filterCat);
+        else if (page === 'about') mainContent.innerHTML = renderAbout();
+        else if (page === 'services') mainContent.innerHTML = renderServices();
+        else if (page === 'contact') mainContent.innerHTML = renderContact();
+        
+        // rebind dynamic events
+        bindDynamicEvents();
+      }
+
+      function bindDynamicEvents() {
+        // search button on homepage
+        const searchBtn = document.getElementById('searchBtn');
+        if (searchBtn) {
+          searchBtn.addEventListener('click', () => {
+            const cat = document.getElementById('categorySelect')?.value;
+            navigateTo('listings', cat || null);
+          });
+        }
+        // category clicks
+        document.querySelectorAll('.category-item').forEach(item => {
+          item.addEventListener('click', function(e) {
+            const filter = this.dataset.filter;
+            navigateTo('listings', filter);
+          });
+        });
+        // inquiry form submission
+        const form = document.getElementById('inquiryForm');
+        if (form) {
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! Alunbo Property will get back to you shortly.');
+            form.reset();
+          });
+        }
+        // nav link clicks inside dynamically added? but we use global listener
+      }
+
+      // global navigation
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[data-page]');
+        if (link) {
+          e.preventDefault();
+          const page = link.dataset.page;
+          navigateTo(page);
+        }
+        // also handle footer quick links
+        if (e.target.matches('a[data-page]')) {
+          // already handled
+        }
+      });
+
+      // initial load
+      navigateTo('home');
+    })();
+  </script>
+</body>
+</html>
